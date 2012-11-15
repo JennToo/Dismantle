@@ -3,7 +3,7 @@ main: nl.nitori.Dismantle.DismantleMain
 version: 1
 commands:
    dismantle:
-      description: This is a demo command.
+      description: Takes apart items
       usage: /dismantle - While holding a valid item (armor, tool)
       permission: dismantle.use
-      permission-message: You don't have permission to use <command>
+      permission-message: You don't have permission to use /dismantle
