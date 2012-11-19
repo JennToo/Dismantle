@@ -77,7 +77,7 @@ public class DismantleMain extends JavaPlugin {
         // Some info in case people are trying to abuse a hole in the
         // recipes (like a DSword giving back 3 diamond instead of 2)
         getLogger().info(
-                player.getName() + " is dismantling a " + hand.getType()
+                player.getName() + " is dismantling " + hand.getAmount() + " " + hand.getType()
                         + " with durability " + hand.getDurability());
 
         // What percent of the items should be given. Defaults to 1
@@ -89,7 +89,7 @@ public class DismantleMain extends JavaPlugin {
             factor = (float) (max - hand.getDurability()) / max;
         }
 
-        ItemStack[] broken = breakDowns.get(hand.getType()).getItems(factor);
+        ItemStack[] broken = breakDowns.get(hand.getType()).getItems(factor * hand.getAmount());
         player.getInventory().clear(player.getInventory().getHeldItemSlot());
 
         for (ItemStack s : broken) {
